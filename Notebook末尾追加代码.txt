@@ -1,0 +1,20 @@
+# 在 Notebook 全部训练完成、xgb_model 已存在后运行
+import joblib
+
+model_bundle = {
+    "model": xgb_model,
+    "tfidf_vectorizer": tfidf_vectorizer,
+    "product_encoder": ohe,
+    "memory_encoder": le_memory,
+    "repurchase_encoder": le_repurchase,
+    "disk_mapping": disk_mapping,
+    "feature_version": "lenovo-opinion-v1",
+    "label_mapping": {0: "差评", 1: "好评"}
+}
+
+joblib.dump(
+    model_bundle,
+    "../Backend/analysis/xgb_sentiment_bundle.joblib"
+)
+
+print("模型包已保存到 Backend/analysis/xgb_sentiment_bundle.joblib")
