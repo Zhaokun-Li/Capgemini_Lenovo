@@ -1,0 +1,66 @@
+:root {
+  --sidebar-width: 240px;
+  --header-height: 72px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  background: #f5f7fa;
+  color: #1f2937;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-layout {
+  width: calc(100% - var(--sidebar-width));
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+}
+
+.page-content {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: var(--header-height);
+}
+
+@media (max-width: 900px) {
+  .main-layout {
+    width: 100%;
+    margin-left: 0;
+  }
+}

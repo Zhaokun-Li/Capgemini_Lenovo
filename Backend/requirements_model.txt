@@ -1,0 +1,12 @@
+Flask
+flask-cors
+pandas
+numpy
+scipy
+scikit-learn
+xgboost
+joblib
+jieba
+snownlp
+openpyxl
+xlrd
