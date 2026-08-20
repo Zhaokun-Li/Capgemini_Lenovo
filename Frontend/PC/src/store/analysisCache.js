@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { getLatestAnalysis } from '../api/analysis'
+import { getLatestAnalysis } from '../api/analysis.js'
 
 const STORAGE_KEY = 'public_opinion_analysis_cache_v2'
 const UPDATE_EVENT = 'database-data-updated'

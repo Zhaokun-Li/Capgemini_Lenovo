@@ -3,6 +3,7 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { getStoredUser, logout } from '../api/auth'
 
+const emit = defineEmits(['toggle-sidebar'])
 const router = useRouter()
 const menuOpen = ref(false)
 const user = ref(getStoredUser())
@@ -48,7 +49,20 @@ onBeforeUnmount(() => {
 
 <template>
   <header class="top-header">
-    <div class="header-title">舆情监控平台</div>
+    <div class="header-left">
+      <button
+        type="button"
+        class="mobile-menu-button"
+        aria-label="打开导航菜单"
+        @click="emit('toggle-sidebar')"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="header-title">舆情监控平台</div>
+    </div>
 
     <div ref="userMenu" class="user-menu">
       <button
@@ -117,6 +131,35 @@ onBeforeUnmount(() => {
   color: #17233b;
   font-size: 18px;
   font-weight: 700;
+}
+
+.header-left {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-menu-button {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 10px;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 4px;
+  border: 0;
+  border-radius: 9px;
+  background: #f3f6fa;
+}
+
+.mobile-menu-button span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: #334155;
 }
 
 .user-menu {
@@ -227,10 +270,50 @@ onBeforeUnmount(() => {
 @media (max-width: 900px) {
   .top-header {
     left: 0;
+    padding: 0 16px;
+  }
+
+  .mobile-menu-button {
+    display: flex;
   }
 
   .user-details {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-header {
+    padding: 0 12px;
+  }
+
+  .header-title {
+    overflow: hidden;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .user-button {
+    height: 48px;
+    padding: 5px 4px 5px 8px;
+  }
+
+  .user-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .dropdown-menu {
+    position: fixed;
+    top: calc(var(--header-height) - 2px);
+    right: 12px;
+    left: 12px;
+    width: auto;
   }
 }
 

@@ -1,6 +1,15 @@
 <script setup>
 import { computed } from 'vue'
 
+defineProps({
+  open: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const emit = defineEmits(['close'])
+
 const getUser = () => {
   try {
     return JSON.parse(localStorage.getItem('user') || 'null')
@@ -53,7 +62,7 @@ const adminMenuItems = [
 </script>
 
 <template>
-  <aside class="sidebar">
+  <aside class="sidebar" :class="{ 'sidebar-open': open }">
     <div class="sidebar-logo">
       <div class="sidebar-logo-mark">L</div>
 
@@ -72,6 +81,7 @@ const adminMenuItems = [
         :to="item.path"
         class="sidebar-item"
         active-class="sidebar-item-active"
+        @click="emit('close')"
       >
         <span class="sidebar-icon">
           <svg
@@ -154,6 +164,7 @@ const adminMenuItems = [
           :to="item.path"
           class="sidebar-item"
           active-class="sidebar-item-active"
+          @click="emit('close')"
         >
           <span class="sidebar-icon">
             <svg
@@ -501,7 +512,15 @@ const adminMenuItems = [
 
 @media (max-width: 900px) {
   .sidebar {
-    display: none;
+    display: flex;
+    width: min(82vw, 286px);
+    transform: translateX(-105%);
+    transition: transform 0.25s ease;
+    will-change: transform;
+  }
+
+  .sidebar-open {
+    transform: translateX(0);
   }
 }
 </style>

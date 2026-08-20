@@ -45,6 +45,10 @@ a {
   min-height: 100vh;
 }
 
+.sidebar-backdrop {
+  display: none;
+}
+
 .main-layout {
   width: calc(100% - var(--sidebar-width));
   min-height: 100vh;
@@ -62,5 +66,48 @@ a {
   .main-layout {
     width: 100%;
     margin-left: 0;
+  }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: rgba(7, 18, 40, 0.48);
+    backdrop-filter: blur(2px);
+  }
+
+  body:has(.sidebar-open) {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .page-content {
+    overflow-x: hidden;
+  }
+
+  .page-content :is(input, select, textarea) {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  .page-content :is(button, a) {
+    min-height: 40px;
+  }
+
+  .page-content :is(.table-wrap, .table-container, .database-table-wrap) {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
   }
 }
