@@ -5,12 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9b7c955-eb51-4faf-a199-8ece360c472c" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Capgemini_Lenovo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/api/analysis.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/api/auth.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/api/opinion.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/api/request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/api/review.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/components/header.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/components/sidebar.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/composables/useAnalysis.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/router/user-routes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/store/analysisCache.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/data_import.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/login.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/main_page.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/profile.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/public_opinion_analysis.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/register.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/sentiment_monitor.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/trend_analysis.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/view/user_management.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +67,7 @@
   &quot;keyToString&quot;: {
     &quot;Python.data_clean.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/36171/PycharmProjects/Capgemini_Lenovo/Backend/analysis&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -67,11 +88,11 @@
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src\view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src\view" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Backend" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Backend\analysis" />
-      <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Analysis" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -104,7 +125,9 @@
       <workItem from="1786065689757" duration="16649000" />
       <workItem from="1786412918597" duration="14331000" />
       <workItem from="1786429861689" duration="69000" />
-      <workItem from="1786688344347" duration="607000" />
+      <workItem from="1786688344347" duration="1331000" />
+      <workItem from="1786694067947" duration="306000" />
+      <workItem from="1787018691417" duration="1824000" />
     </task>
     <servers />
   </component>
