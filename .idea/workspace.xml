@@ -6,20 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f9b7c955-eb51-4faf-a199-8ece360c472c" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/axios.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/chunk-PZ5AY32C.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/chunk-PZ5AY32C.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/chunk-PZ5AY32C.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/chunk-PZ5AY32C.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/chunk-RN2DU33H.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/chunk-RN2DU33H.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/echarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/echarts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/echarts.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/echarts.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/vue-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/vue-router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/vue-router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/vue-router.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/vue.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/node_modules/.vite/deps/vue.js.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +37,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.data_clean.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/36171/PycharmProjects/Capgemini_Lenovo/Backend/analysis",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable",
-    "ts.external.directory.path": "D:\\PyCharm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.data_clean.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/36171/PycharmProjects/Capgemini_Lenovo/Backend/analysis&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.notebooks.jupyter.connections.configuration.JupyterServerConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\PyCharm 2024.2.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Backend\analysis" />
@@ -117,7 +103,8 @@
       <workItem from="1786694067947" duration="306000" />
       <workItem from="1787018691417" duration="1824000" />
       <workItem from="1787195760295" duration="1736000" />
-      <workItem from="1787295890904" duration="1672000" />
+      <workItem from="1787295890904" duration="2376000" />
+      <workItem from="1787708052349" duration="1132000" />
     </task>
     <servers />
   </component>
