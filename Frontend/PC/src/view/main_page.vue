@@ -703,8 +703,14 @@ onBeforeUnmount(() => window.removeEventListener('database-data-updated', refres
   gap: 18px;
 }
 
+.chart-grid > * {
+  min-width: 0;
+}
+
 .panel {
+  min-width: 0;
   padding: 22px;
+  overflow: hidden;
 }
 
 .panel h2 {
@@ -723,13 +729,16 @@ onBeforeUnmount(() => window.removeEventListener('database-data-updated', refres
 
 .donut-wrap {
   display: flex;
+  min-width: 0;
   align-items: center;
   justify-content: space-around;
+  gap: 24px;
 }
 
 .donut {
   width: 180px;
   height: 180px;
+  flex: 0 0 180px;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -754,6 +763,7 @@ onBeforeUnmount(() => window.removeEventListener('database-data-updated', refres
 }
 
 .legend {
+  width: min(100%, 300px);
   min-width: 240px;
 }
 
@@ -928,6 +938,97 @@ td {
   .donut-wrap {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .legend {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .database-dashboard {
+    width: 100%;
+    padding: 18px 12px 28px;
+    overflow-x: hidden;
+  }
+
+  .page-heading h1 {
+    font-size: 23px;
+  }
+
+  .date-box {
+    width: 100%;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .summary-grid article,
+  .panel {
+    width: 100%;
+    min-width: 0;
+    border-radius: 13px;
+  }
+
+  .panel {
+    padding: 18px 16px;
+  }
+
+  .donut {
+    width: 156px;
+    height: 156px;
+    flex-basis: 156px;
+  }
+
+  .donut > span {
+    width: 96px;
+    height: 96px;
+    font-size: 21px;
+  }
+
+  .legend div {
+    width: 100%;
+  }
+
+  .legend strong {
+    overflow-wrap: anywhere;
+    text-align: right;
+  }
+
+  .bars {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .bars > div {
+    width: 100%;
+    min-width: 0;
+    grid-template-columns: minmax(52px, 26%) minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .bars > div > span {
+    min-width: 0;
+  }
+
+  .bars > div > strong {
+    min-width: 28px;
+    text-align: right;
+  }
+
+  .detail-heading form,
+  .detail-heading input,
+  .detail-heading select,
+  .detail-heading button {
+    width: 100%;
+  }
+
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 </style>
