@@ -8,5 +8,52 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      window.difyChatbotConfig = {
+        token: 'WjOB12YSosdIfI5R',
+        baseUrl: 'http://localhost',
+        inputs: {},
+        systemVariables: {},
+        userVariables: {}
+      }
+    </script>
+    <script
+      src="http://localhost/embed.min.js"
+      id="WjOB12YSosdIfI5R"
+      defer
+    ></script>
+    <style>
+      #dify-chatbot-bubble-button {
+        display: none !important;
+        background-color: #1c64f2 !important;
+      }
+
+      #dify-chatbot-bubble-window {
+        position: fixed !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: 18px !important;
+        left: calc(var(--sidebar-width) + 18px) !important;
+        z-index: 9999 !important;
+        width: min(24rem, calc(100vw - var(--sidebar-width) - 36px)) !important;
+        height: min(40rem, calc(100dvh - 36px)) !important;
+        max-width: calc(100vw - var(--sidebar-width) - 36px) !important;
+        max-height: calc(100dvh - 36px) !important;
+        margin: 0 !important;
+        transform: none !important;
+      }
+
+      @media (max-width: 900px) {
+        #dify-chatbot-bubble-window {
+          right: 12px !important;
+          bottom: 12px !important;
+          left: 12px !important;
+          width: auto !important;
+          height: min(40rem, calc(100dvh - 24px)) !important;
+          max-width: none !important;
+          max-height: calc(100dvh - 24px) !important;
+        }
+      }
+    </style>
   </body>
 </html>
