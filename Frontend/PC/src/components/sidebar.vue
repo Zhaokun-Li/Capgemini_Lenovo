@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 defineProps({
   open: {
@@ -9,6 +9,9 @@ defineProps({
 })
 
 const emit = defineEmits(['close'])
+const helpLoading = ref(false)
+const difyToken = 'WjOB12YSosdIfI5R'
+const difyBaseUrl = 'http://localhost'
 
 const getUser = () => {
   try {
@@ -59,6 +62,75 @@ const adminMenuItems = [
     icon: 'users'
   }
 ]
+
+const waitForChatbotButton = () => new Promise((resolve, reject) => {
+  const startedAt = Date.now()
+  const timer = window.setInterval(() => {
+    const button = document.getElementById('dify-chatbot-bubble-button')
+
+    if (button) {
+      window.clearInterval(timer)
+      resolve(button)
+      return
+    }
+
+    if (Date.now() - startedAt > 10000) {
+      window.clearInterval(timer)
+      reject(new Error('Dify chatbot load timeout'))
+    }
+  }, 200)
+})
+
+const loadDify = () => {
+  const existingButton = document.getElementById('dify-chatbot-bubble-button')
+
+  if (existingButton) {
+    return Promise.resolve(existingButton)
+  }
+
+  window.difyChatbotConfig = {
+    token: difyToken,
+    baseUrl: difyBaseUrl,
+    inputs: {},
+    systemVariables: {},
+    userVariables: {}
+  }
+
+  const existingScript = document.getElementById(difyToken)
+
+  if (!existingScript) {
+    const script = document.createElement('script')
+    script.id = difyToken
+    script.src = `${difyBaseUrl}/embed.min.js`
+    script.defer = true
+    script.addEventListener('error', () => script.remove(), { once: true })
+    document.body.appendChild(script)
+  }
+
+  return waitForChatbotButton()
+}
+
+const toggleHelpChat = async () => {
+  if (helpLoading.value) return
+
+  helpLoading.value = true
+
+  try {
+    const chatbotButton = await loadDify()
+    chatbotButton.click()
+    emit('close')
+  } catch {
+    window.alert(
+      'Dify助手加载失败，请确认 http://localhost 能打开，并且应用已经发布'
+    )
+  } finally {
+    helpLoading.value = false
+  }
+}
+
+onMounted(() => {
+  loadDify().catch(() => {})
+})
 </script>
 
 <template>
@@ -210,14 +282,19 @@ const adminMenuItems = [
         </div>
       </div>
 
-      <div class="sidebar-help">
+      <button
+        type="button"
+        class="sidebar-help"
+        aria-label="打开智能帮助助手"
+        @click="toggleHelpChat"
+      >
         <div class="help-icon">?</div>
 
         <div class="help-content">
           <strong>需要帮助？</strong>
-          <span>查看使用指南</span>
+          <span>{{ helpLoading ? '正在加载助手…' : '打开智能助手' }}</span>
         </div>
-      </div>
+      </button>
     </div>
   </aside>
 </template>
@@ -464,11 +541,16 @@ const adminMenuItems = [
 
 .sidebar-help {
   display: flex;
+  width: 100%;
   padding: 11px 12px;
   align-items: center;
   gap: 11px;
+  border: 0;
   border-radius: 9px;
   color: rgba(223, 232, 250, 0.74);
+  background: transparent;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
   transition:
     color 0.2s ease,
@@ -522,5 +604,42 @@ const adminMenuItems = [
   .sidebar-open {
     transform: translateX(0);
   }
+}
+
+:global(#dify-chatbot-bubble-button) {
+  display: none !important;
+  background-color: #1c64f2 !important;
+}
+
+:global(#dify-chatbot-bubble-window) {
+  position: fixed !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: 18px !important;
+  left: calc(var(--sidebar-width) + 18px) !important;
+  z-index: 9999 !important;
+  width: min(24rem, calc(100vw - var(--sidebar-width) - 36px)) !important;
+  height: min(40rem, calc(100dvh - 36px)) !important;
+  max-width: calc(100vw - var(--sidebar-width) - 36px) !important;
+  max-height: calc(100dvh - 36px) !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+@media (max-width: 900px) {
+  :global(#dify-chatbot-bubble-window) {
+    right: 12px !important;
+    bottom: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    height: min(40rem, calc(100dvh - 24px)) !important;
+    max-width: none !important;
+    max-height: calc(100dvh - 24px) !important;
+  }
+}
+
+.sidebar-help:focus-visible {
+  outline: 2px solid #8fbcff;
+  outline-offset: 2px;
 }
 </style>

@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f9b7c955-eb51-4faf-a199-8ece360c472c" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/components/sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/src/components/sidebar.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +64,11 @@
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src\view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src\components" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src\view" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Backend" />
-      <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Backend\analysis" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -104,7 +106,11 @@
       <workItem from="1787018691417" duration="1824000" />
       <workItem from="1787195760295" duration="1736000" />
       <workItem from="1787295890904" duration="2376000" />
-      <workItem from="1787708052349" duration="2123000" />
+      <workItem from="1787708052349" duration="4214000" />
+      <workItem from="1787714581049" duration="2117000" />
+      <workItem from="1787723008026" duration="2968000" />
+      <workItem from="1787801074750" duration="309000" />
+      <workItem from="1787802240273" duration="418000" />
     </task>
     <servers />
   </component>
