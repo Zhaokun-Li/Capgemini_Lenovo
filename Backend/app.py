@@ -1704,6 +1704,7 @@ def get_review_dashboard():
 
 @app.get("/api/reviews/statistics")
 def get_review_statistics():
+        from sqlalchemy import func, case
         try:
             filtered_query = (
                 apply_review_filters(
