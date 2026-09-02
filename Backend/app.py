@@ -21,11 +21,13 @@ app = Flask(__name__)
 
 CORS(
     app,
-    resources={r"/*": {"origins": "*"}},
+    resources={
+        r"/api/*": {
+            "origins": "https://capgemini-lenovo-two.vercel.app"
+        }
+    },
     allow_headers=["Content-Type", "Authorization"],
-    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    expose_headers=["Content-Type", "Authorization"],
-    supports_credentials=False
+    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
 )
 
 MYSQL_HOST = os.getenv("MYSQL_HOST")
