@@ -18,18 +18,14 @@ from sqlalchemy.dialects.mysql import LONGTEXT
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
 app = Flask(__name__)
+
 CORS(
     app,
-    resources={
-        r"/api/*": {
-            "origins": [
-                "http://localhost:5173",
-                "https://capgemini-lenovo-two.vercel.app"
-            ]
-        }
-    },
+    resources={r"/*": {"origins": "*"}},
     allow_headers=["Content-Type", "Authorization"],
-    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    expose_headers=["Content-Type", "Authorization"],
+    supports_credentials=False
 )
 
 MYSQL_HOST = os.getenv("MYSQL_HOST")
