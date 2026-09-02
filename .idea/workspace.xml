@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9b7c955-eb51-4faf-a199-8ece360c472c" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/PC/src/components/sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/PC/src/components/sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +30,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Frontend/PC/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Frontend/PC/src/components/sidebar.vue" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -44,7 +50,7 @@
     &quot;Python.data_clean.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/36171/PycharmProjects/Capgemini_Lenovo/Backend/analysis&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/36171/PycharmProjects/Capgemini_Lenovo/Frontend/PC/src/components&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -57,11 +63,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src\components" />
+      <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Backend\analysis" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Analysis" />
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Backend" />
-      <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo" />
-      <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src\view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\36171\PycharmProjects\Capgemini_Lenovo\Frontend\PC\src\components" />
@@ -111,6 +117,9 @@
       <workItem from="1787723008026" duration="2968000" />
       <workItem from="1787801074750" duration="309000" />
       <workItem from="1787802240273" duration="418000" />
+      <workItem from="1787802737908" duration="786000" />
+      <workItem from="1787901521913" duration="1380000" />
+      <workItem from="1788316904898" duration="633000" />
     </task>
     <servers />
   </component>

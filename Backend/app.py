@@ -1,38 +1,29 @@
 import os
 import json
 import threading
+import re
+from pathlib import Path
 from datetime import date, datetime, timedelta
 from collections import Counter
-import re
 from urllib.parse import quote_plus
 
-from dotenv import load_dotenv
+import certifi
 import pandas as pd
+from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import case, func, or_, text
 from sqlalchemy.dialects.mysql import LONGTEXT
-from analysis.model_service import build_analysis, predict_dataframe
 
-
-
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 app = Flask(__name__)
-CORS(app)
 
-MYSQL_USER = os.getenv("MYSQL_USER") or os.getenv(
-    "MYSQL_USERNAME",
-    "root"
-)
+MYSQL_HOST = os.getenv("MYSQL_HOST")
+MYSQL_PORT = int(os.getenv("MYSQL_PORT", "4000"))
+MYSQL_USER = os.getenv("MYSQL_USER")
 MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD", "")
-MYSQL_HOST = os.getenv("MYSQL_HOST", "127.0.0.1")
-MYSQL_PORT = os.getenv("MYSQL_PORT", "3306")
-MYSQL_DATABASE = os.getenv(
-    "MYSQL_DATABASE",
-    "lenovo_insight"
-)
+MYSQL_DATABASE = os.getenv("MYSQL_DATABASE", "lenovo_insight")
 
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     f"mysql+pymysql://{MYSQL_USER}:"
@@ -42,10 +33,31 @@ app.config["SQLALCHEMY_DATABASE_URI"] = (
 )
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["JSON_AS_ASCII"] = False
+
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_pre_ping": True,
+    "pool_recycle": 300,
+    "connect_args": {
+        "ssl": {
+            "ca": certifi.where()
+        }
+    }
+}
 
 db = SQLAlchemy(app)
 
+CORS(
+    app,
+    resources={
+        r"/api/*": {
+            "origins": [
+                "http://localhost:5173",
+                "http://127.0.0.1:5173"
+            ]
+        }
+    },
+    supports_credentials=True
+)
 
 class ProductReview(db.Model):
     __tablename__ = "product_review"
@@ -2077,7 +2089,7 @@ def refresh_cache_after_data_change(response):
     return response
 
 with app.app_context():
-    db.create_all()
+    pass
     cached_data = (load_analysis_cache().get("data") or {})
     if not os.path.exists(ANALYSIS_CACHE_PATH) or "trend_dashboard" not in cached_data:
         refresh_analysis_cache_safely()
@@ -2085,7 +2097,7 @@ with app.app_context():
 
 if __name__ == "__main__":
     app.run(
-        host="127.0.0.1",
+        host="0.0.0.0",
         port=5000,
         debug=True
     )
