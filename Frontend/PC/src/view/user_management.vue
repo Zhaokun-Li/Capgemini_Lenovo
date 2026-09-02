@@ -106,7 +106,7 @@ const loadUsers = async () => {
     })
     if (keyword.value.trim()) params.set('keyword', keyword.value.trim())
 
-    const result = await request(`/api/admin/users?${params}`)
+    const result = await request(`/admin/users?${params}`)
     users.value = result.data?.items || []
     total.value = result.data?.pagination?.total || 0
     pages.value = Math.max(result.data?.pagination?.pages || 1, 1)
@@ -169,7 +169,7 @@ const saveUser = async () => {
   saving.value = true
   try {
     if (editingUser.value) {
-      await request(`/api/admin/users/${editingUser.value.id}`, {
+      await request(`/admin/users/${editingUser.value.id}`, {
         method: 'PUT',
         body: JSON.stringify({
           display_name: form.display_name.trim(),
@@ -179,7 +179,7 @@ const saveUser = async () => {
       })
       notify('用户信息已更新')
     } else {
-      await request('/api/admin/users', {
+      await request('/admin/users', {
         method: 'POST',
         body: JSON.stringify({
           username: form.username.trim(),
@@ -203,7 +203,7 @@ const saveUser = async () => {
 
 const toggleStatus = async (user) => {
   try {
-    await request(`/api/admin/users/${user.id}`, {
+    await request(`/admin/users/${user.id}`, {
       method: 'PUT',
       body: JSON.stringify({
         display_name: user.display_name,
@@ -237,7 +237,7 @@ const resetPassword = async () => {
 
   saving.value = true
   try {
-    await request(`/api/admin/users/${selectedUser.value.id}/reset-password`, {
+    await request(`/admin/users/${selectedUser.value.id}/reset-password`, {
       method: 'PUT',
       body: JSON.stringify({ new_password: passwordForm.password })
     })
@@ -258,7 +258,7 @@ const openDelete = (user) => {
 const deleteUser = async () => {
   saving.value = true
   try {
-    await request(`/api/admin/users/${selectedUser.value.id}`, { method: 'DELETE' })
+    await request(`/admin/users/${selectedUser.value.id}`, { method: 'DELETE' })
     showDeleteModal.value = false
     notify('用户已删除')
     if (users.value.length === 1 && page.value > 1) page.value -= 1
