@@ -1,17 +1,22 @@
 import axios from 'axios'
 
 const authApi = axios.create({
-  baseURL: 'http://127.0.0.1:5000/api',
-  timeout: 15000
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  timeout: 30000
 })
 
-authApi.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token')
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
-})
+authApi.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token')
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
+
+    return config
+  },
+  (error) => Promise.reject(error)
+)
 
 authApi.interceptors.response.use(
   (response) => response,
@@ -20,30 +25,57 @@ authApi.interceptors.response.use(
       localStorage.removeItem('token')
       localStorage.removeItem('user')
     }
+
     return Promise.reject(error)
   }
 )
 
-export const register = (data) => authApi.post('/auth/register', data).then((r) => r.data)
+export const register = (data) =>
+  authApi.post('/auth/register', data).then((response) => response.data)
+
 export const login = (account, password) =>
-  authApi.post('/auth/login', { account, password }).then((r) => r.data)
-export const getMe = () => authApi.get('/auth/me').then((r) => r.data)
+  authApi
+    .post('/auth/login', {
+      account,
+      password
+    })
+    .then((response) => response.data)
+
+export const getMe = () =>
+  authApi.get('/auth/me').then((response) => response.data)
+
 export const updateProfile = (data) =>
-  authApi.put('/auth/profile', data).then((r) => r.data)
+  authApi.put('/auth/profile', data).then((response) => response.data)
+
 export const changePassword = (data) =>
-  authApi.put('/auth/password', data).then((r) => r.data)
+  authApi.put('/auth/password', data).then((response) => response.data)
+
 export const getUsers = (params) =>
-  authApi.get('/admin/users', { params }).then((r) => r.data)
+  authApi
+    .get('/admin/users', {
+      params
+    })
+    .then((response) => response.data)
+
 export const createUser = (data) =>
-  authApi.post('/admin/users', data).then((r) => r.data)
+  authApi.post('/admin/users', data).then((response) => response.data)
+
 export const updateUser = (id, data) =>
-  authApi.put(`/admin/users/${id}`, data).then((r) => r.data)
+  authApi
+    .put(`/admin/users/${id}`, data)
+    .then((response) => response.data)
+
 export const resetUserPassword = (id, newPassword) =>
-  authApi.put(`/admin/users/${id}/reset-password`, {
-    new_password: newPassword
-  }).then((r) => r.data)
+  authApi
+    .put(`/admin/users/${id}/reset-password`, {
+      new_password: newPassword
+    })
+    .then((response) => response.data)
+
 export const deleteUser = (id) =>
-  authApi.delete(`/admin/users/${id}`).then((r) => r.data)
+  authApi
+    .delete(`/admin/users/${id}`)
+    .then((response) => response.data)
 
 export const saveSession = (result) => {
   localStorage.setItem('token', result.data.token)
@@ -64,4 +96,3 @@ export const logout = () => {
 }
 
 export default authApi
-

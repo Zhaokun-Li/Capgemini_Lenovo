@@ -2,7 +2,7 @@
 import { computed, onMounted, reactive, ref } from 'vue'
 import { refreshAfterDatabaseChange } from '../store/analysisCache'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:5000'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 const fileInput = ref(null)
 const selectedFile = ref(null)
 const isDragging = ref(false)
@@ -128,7 +128,7 @@ const loadReviews = async (page = reviewPage.value) => {
       page_size: String(reviewPageSize),
       keyword: reviewKeyword.value.trim()
     })
-    const response = await fetch(`${API_BASE_URL}/api/admin/reviews?${params}`, {
+    const response = await fetch(`${API_BASE_URL}/admin/reviews?${params}`, {
       headers: authHeaders()
     })
     const result = await parseApiResult(response)
@@ -176,7 +176,7 @@ const saveReview = async () => {
   try {
     const isEdit = Boolean(editingId.value)
     const response = await fetch(
-      `${API_BASE_URL}/api/admin/reviews${isEdit ? `/${editingId.value}` : ''}`,
+      `${API_BASE_URL}/admin/reviews${isEdit ? `/${editingId.value}` : ''}`,
       {
         method: isEdit ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeaders() },
@@ -198,7 +198,7 @@ const saveReview = async () => {
 const deleteReview = async (review) => {
   if (!window.confirm(`确定删除编号 ${review.data_index} 的评论吗？删除后无法恢复。`)) return
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/reviews/${review.id}`, {
+    const response = await fetch(`${API_BASE_URL}/admin/reviews/${review.id}`, {
       method: 'DELETE',
       headers: authHeaders()
     })
@@ -222,7 +222,7 @@ const clearAllReviews = async () => {
     return
   }
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/reviews`, {
+    const response = await fetch(`${API_BASE_URL}/admin/reviews`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json', ...authHeaders() },
       body: JSON.stringify({ confirmation: 'CLEAR_ALL_REVIEWS' })

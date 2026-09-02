@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from "axios"
 
 const request = axios.create({
-  baseURL: 'http://127.0.0.1:5000',
-  timeout: 10000
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+  timeout: 30000
 })
 
 request.interceptors.response.use(
