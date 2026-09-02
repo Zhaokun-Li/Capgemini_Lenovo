@@ -6,3 +6,8 @@ SQLAlchemy
 pandas
 openpyxl
 python-dotenv
+PyJWT
+joblib
+snownlp
+certifi
+gunicorn
