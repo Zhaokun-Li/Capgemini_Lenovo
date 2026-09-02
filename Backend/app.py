@@ -18,6 +18,19 @@ from sqlalchemy.dialects.mysql import LONGTEXT
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
 app = Flask(__name__)
+CORS(
+    app,
+    resources={
+        r"/api/*": {
+            "origins": [
+                "http://localhost:5173",
+                "https://capgemini-lenovo-two.vercel.app"
+            ]
+        }
+    },
+    allow_headers=["Content-Type", "Authorization"],
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+)
 
 MYSQL_HOST = os.getenv("MYSQL_HOST")
 MYSQL_PORT = int(os.getenv("MYSQL_PORT", "4000"))
@@ -45,19 +58,6 @@ app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
 }
 
 db = SQLAlchemy(app)
-
-CORS(
-    app,
-    resources={
-        r"/api/*": {
-            "origins": [
-                "http://localhost:5173",
-                "http://127.0.0.1:5173"
-            ]
-        }
-    },
-    supports_credentials=True
-)
 
 class ProductReview(db.Model):
     __tablename__ = "product_review"
