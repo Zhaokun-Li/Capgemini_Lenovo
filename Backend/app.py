@@ -6,6 +6,7 @@ from pathlib import Path
 from datetime import date, datetime, timedelta
 from collections import Counter
 from urllib.parse import quote_plus
+from sqlalchemy import func
 
 import certifi
 import pandas as pd
