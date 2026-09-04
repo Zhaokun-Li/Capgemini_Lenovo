@@ -11,7 +11,7 @@ defineProps({
 const emit = defineEmits(['close'])
 const helpLoading = ref(false)
 const difyToken = 'WjOB12YSosdIfI5R'
-const difyBaseUrl = 'http://localhost'
+const difyBaseUrl = ':https://udify.app'
 
 const getUser = () => {
   try {
