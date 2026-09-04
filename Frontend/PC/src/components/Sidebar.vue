@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 
 defineProps({
   open: {
@@ -10,8 +10,6 @@ defineProps({
 
 const emit = defineEmits(['close'])
 const helpLoading = ref(false)
-const difyToken = 'WjOB12YSosdIfI5R'
-const difyBaseUrl = ':https://udify.app'
 
 const getUser = () => {
   try {
@@ -74,41 +72,12 @@ const waitForChatbotButton = () => new Promise((resolve, reject) => {
       return
     }
 
-    if (Date.now() - startedAt > 10000) {
+    if (Date.now() - startedAt > 8000) {
       window.clearInterval(timer)
       reject(new Error('Dify chatbot load timeout'))
     }
   }, 200)
 })
-
-const loadDify = () => {
-  const existingButton = document.getElementById('dify-chatbot-bubble-button')
-
-  if (existingButton) {
-    return Promise.resolve(existingButton)
-  }
-
-  window.difyChatbotConfig = {
-    token: difyToken,
-    baseUrl: difyBaseUrl,
-    inputs: {},
-    systemVariables: {},
-    userVariables: {}
-  }
-
-  const existingScript = document.getElementById(difyToken)
-
-  if (!existingScript) {
-    const script = document.createElement('script')
-    script.id = difyToken
-    script.src = `${difyBaseUrl}/embed.min.js`
-    script.defer = true
-    script.addEventListener('error', () => script.remove(), { once: true })
-    document.body.appendChild(script)
-  }
-
-  return waitForChatbotButton()
-}
 
 const toggleHelpChat = async () => {
   if (helpLoading.value) return
@@ -116,21 +85,15 @@ const toggleHelpChat = async () => {
   helpLoading.value = true
 
   try {
-    const chatbotButton = await loadDify()
+    const chatbotButton = await waitForChatbotButton()
     chatbotButton.click()
     emit('close')
   } catch {
-    window.alert(
-      'Dify助手加载失败，请确认 http://localhost 能打开，并且应用已经发布'
-    )
+    window.alert('Dify 助手加载失败，请刷新页面后重试')
   } finally {
     helpLoading.value = false
   }
 }
-
-onMounted(() => {
-  loadDify().catch(() => {})
-})
 </script>
 
 <template>
